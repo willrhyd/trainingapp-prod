@@ -87,7 +87,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 //Connect to database and set the Ride model from databse.js
-connection.connect
+connection.connect;
 
 const Ride = connection.Ride;
 const User = connection.User;

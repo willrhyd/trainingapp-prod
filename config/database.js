@@ -7,6 +7,7 @@ const conn = "mongodb://Administrator:GKR3NBzGCcJYCFwW@cluster0-shard-00-00.m89c
 const connect = async function(){
   try{
   mongoose.connect(conn)
+  console.log("Connected to MongoDB")
 } catch (e){console.log(e)}
 }
 
