@@ -7,6 +7,7 @@ const validPassword = require('../lib/passwordUtils').validPassword
 const verifyCallback = async function(username, password, cb) {
 
   try{
+    console.log(username)
     let user = await User.findOne({ username: username })
 
     if (!user) { return cb(null, false) }
