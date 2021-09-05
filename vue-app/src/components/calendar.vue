@@ -75,14 +75,14 @@ export default {
     // Currently mutating the prop directly which is apparently an anti-pattern but works well enough for now
     async fetchSingleRide(id) {
       console.log(id);
-      this.selectedRide = await axios.get('http://localhost:3000/showRide/' + id)
+      this.selectedRide = await axios.get('/showRide/' + id)
         .catch(function(error) {
           console.log(error);
         })
 
     },
     async fetchRides(dateOne, dateTwo) {
-      return axios.get('http://localhost:3000/showRides/' + dateOne + '.' + dateTwo)
+      return axios.get('/showRides/' + dateOne + '.' + dateTwo)
         .catch(function(error) {
           console.log(error);
         })
