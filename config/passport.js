@@ -20,7 +20,7 @@ const verifyCallback = async function(username, password, cb) {
   } catch(err) {
                 // This is an application error, so we need to populate the callback `err` field with it
                 cb(err);
-            });
+            }
 }
 const strategy = new LocalStrategy(verifyCallback);
 
