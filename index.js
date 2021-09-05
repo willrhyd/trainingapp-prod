@@ -45,7 +45,7 @@ const upload = multer({
 app.use(cookieParser())
 app.use(cors({
   origin: [
-    'http://localhost:8080',
+    'https://willrhyd.github.io/trainingapp-prod',
     'https://localhost:8080'
   ],
   credentials: true,
@@ -87,7 +87,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 //Connect to database and set the Ride model from databse.js
-connection.connect;
+connection.connect.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const Ride = connection.Ride;
 const User = connection.User;
 
