@@ -6,10 +6,8 @@ const conn = "mongodb://Administrator:GKR3NBzGCcJYCFwW@cluster0-shard-00-00.m89c
 
 const connect = async function(){
   try{
-  mongoose.connect(conn, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})} catch (e){ console.log(e)}
+  mongoose.connect(conn)
+} catch (e){console.log(e)}
 }
 
 const Schema = mongoose.Schema;
