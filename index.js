@@ -87,7 +87,7 @@ function ensureAuthenticated(req, res, next) {
 }
 
 //Connect to database and set the Ride model from databse.js
-connection.connect.on('error', console.error.bind(console, 'MongoDB connection error:'));
+connection.connect
 const Ride = connection.Ride;
 const User = connection.User;
 
