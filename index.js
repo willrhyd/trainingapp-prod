@@ -59,7 +59,7 @@ app.use(express.urlencoded({ // to support URL-encoded bodies
 }));
 app.use(session({
   name: "trainingApp",
-  secret: process.env.SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({
