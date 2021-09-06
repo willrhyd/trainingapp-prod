@@ -202,7 +202,7 @@ app.post('/register', function(req, res) {
   res.sendStatus;
 });
 
-app.post('/login', passport.authenticate('local'), function(req, res) {
+app.post('/login', passport.authenticate('local'), ensureAuthenticated, function(req, res) {
 
   res.status(200).json({
     msg: "Signed in successfully"
