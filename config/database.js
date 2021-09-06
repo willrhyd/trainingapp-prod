@@ -4,12 +4,7 @@ require('dotenv').config();
 
 const conn = "mongodb://Administrator:GKR3NBzGCcJYCFwW@cluster0-shard-00-00.m89cn.mongodb.net:27017,cluster0-shard-00-01.m89cn.mongodb.net:27017,cluster0-shard-00-02.m89cn.mongodb.net:27017/rides?ssl=true&replicaSet=atlas-iug182-shard-0&authSource=admin&retryWrites=true&w=majority";
 
-const connect = async function(){
-  try{
-  mongoose.connect(conn)
-  console.log("Connected to MongoDB")
-} catch (e){console.log(e)}
-}
+const connect = mongoose.connect(conn);
 
 const Schema = mongoose.Schema;
 
