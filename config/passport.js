@@ -4,24 +4,24 @@ const connection = require('./database');
 const User = connection.User;
 const validPassword = require('../lib/passwordUtils').validPassword
 
-const verifyCallback = async function(username, password, cb) {
+const verifyCallback = function(username, password, cb) {
+        // Search the MongoDB database for the user with the supplied username
+        User.findOne({ username: username })
+            .then((user) => {
 
-  try{
-    console.log(username)
-    let user = await User.findOne({ username: username })
+                if (!user) { return cb(null, false) }
+                  const isValid = validPassword(password, user.hash, user.salt);
 
-    if (!user) { return cb(null, false) }
-      const isValid = validPassword(password, user.hash, user.salt);
-
-    if (isValid) {
-      return cb(null, user);
-    } else {
-      return cb(null, false);
-    }
-  } catch(err) {
+                if (isValid) {
+                  return cb(null, user);
+                } else {
+                  return cb(null, false);
+                }
+            })
+            .catch((err) => {
                 // This is an application error, so we need to populate the callback `err` field with it
                 cb(err);
-            }
+            });
 }
 const strategy = new LocalStrategy(verifyCallback);
 
