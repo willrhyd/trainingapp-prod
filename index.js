@@ -206,7 +206,6 @@ app.post('/register', function(req, res) {
 
 app.post('/login', passport.authenticate('local'), ensureAuthenticated, function(req, res) {
 
-if
   res.status(200).json({
     msg: "Signed in successfully"
   });
