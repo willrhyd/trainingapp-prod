@@ -67,9 +67,10 @@ app.use(session({
     collectionName: 'sessions' // See below for details
   }),
   cookie: {
-
+    path:"/",
     maxAge: 100 * 60 * 60 * 24,
-    httpOnly: false
+    httpOnly: false,
+    secure: true
   },
   unset: 'destroy'
 }));
