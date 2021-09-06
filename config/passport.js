@@ -8,7 +8,7 @@ const verifyCallback = function(username, password, cb) {
         // Search the MongoDB database for the user with the supplied username
         User.findOne({ username: username })
             .then((user) => {
-
+              console.log("MongoDB returned" + user)
                 if (!user) { return cb(null, false) }
                   const isValid = validPassword(password, user.hash, user.salt);
 

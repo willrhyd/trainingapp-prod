@@ -79,6 +79,7 @@ app.use(passport.session());
 function ensureAuthenticated(req, res, next) {
   console.log(`Is logged in: ${req.isAuthenticated()}`);
   if (req.isAuthenticated()) {
+
     return next();
   }
   res.status(401).json({
@@ -204,6 +205,7 @@ app.post('/register', function(req, res) {
 
 app.post('/login', passport.authenticate('local'), ensureAuthenticated, function(req, res) {
 
+if
   res.status(200).json({
     msg: "Signed in successfully"
   });
