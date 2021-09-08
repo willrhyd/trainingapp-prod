@@ -67,7 +67,7 @@ app.use(session({
     collectionName: 'sessions' // See below for details
   }),
   cookie: {
-    path:"/",
+    domain: 'axios.trainingappserver.uk',
     maxAge: 100 * 60 * 60 * 24,
     httpOnly: false,
     secure: true
