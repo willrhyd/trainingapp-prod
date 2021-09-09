@@ -2,9 +2,9 @@
   <div class="nav">
     <ul>
       <li v-if='isLoggedIn'><a href="/user"  rel="noopener">{{user}}</a></li>
-      <li v-if='isLoggedIn'><a href="/calendar" rel="noopener">Calendar</a></li>
-      <li v-if='isLoggedIn'><a href="/dashboard"  rel="noopener">Dashboard</a></li>
-      <li v-if='isLoggedIn==false'><a href="/register"  rel="noopener">Sign Up</a></li>
+      <li v-if='isLoggedIn'><a v-on:click="clickCal" rel="noopener">Calendar</a></li>
+      <li v-if='isLoggedIn'><a v-on:click="clickDash"  rel="noopener">Dashboard</a></li>
+      <li v-if='isLoggedIn==false'><a v-on:click="clickReg"  rel="noopener">Sign Up</a></li>
       <li v-if='isLoggedIn'><a v-on:click="logout" href="/"  rel="noopener">Logout</a></li>
     </ul>
   </div>
@@ -23,7 +23,16 @@ export default {
      async logout(){
        await this.$store.dispatch('LogOut');
         this.$router.push('/');
-    }
+    },
+    clickCal(){
+     this.$router.push('/calendar');
+   },
+   clickDash(){
+    this.$router.push('/dashboard');
+  },
+  clickReg(){
+   this.$router.push('/register');
+ }
   }
 }
 </script>
