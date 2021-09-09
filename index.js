@@ -42,6 +42,9 @@ const upload = multer({
   storage: storage
 });
 
+app.use((req, res, next) => {
+  console.log(req.domain);
+});
 app.use(cookieParser())
 app.use(cors({
   origin: [
@@ -67,7 +70,7 @@ app.use(session({
     collectionName: 'sessions' // See below for details
   }),
   cookie: {
-    domain: 'axios.trainingappserver.uk',
+    domain: 'trainingappserver.uk',
     maxAge: 100 * 60 * 60 * 24,
     httpOnly: false,
     secure: true
