@@ -52,7 +52,8 @@ app.use(cors({
     'https://willrhyd.github.io/trainingapp-prod',
     'http://localhost:8080'
   ],
-  credentials: true
+  credentials: true,
+  exposedHeaders: ['set-cookie']
 
 }));
 
@@ -73,9 +74,10 @@ app.use(session({
     collectionName: 'sessions' // See below for details
   }),
   cookie: {
-    SameSite: 'none',
+
     secure: true,
     maxAge: 100 * 60 * 60 * 24,
+    sameSite: 'none'
 
   },
   unset: 'destroy'
