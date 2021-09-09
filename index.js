@@ -49,7 +49,9 @@ app.use((req, res, next) => {
 app.use(cookieParser())
 app.use(cors({
   origin: [
-    '*'
+    'https://willrhyd.github.io/trainingapp-prod/'
+    'http://willrhyd.github.io/trainingapp-prod/',
+    'http://localhost:8080'
   ],
   credentials: true,
   exposedHeaders: ['set-cookie']
