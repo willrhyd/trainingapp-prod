@@ -62,12 +62,13 @@ app.use(express.urlencoded({ // to support URL-encoded bodies
   extended: true
 }));
 
-app.set("trust proxy", 1);
+app.enable("trust proxy");
 app.use(session({
   name: "trainingApp",
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
+  proxy: true,
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URI,
     collectionName: 'sessions' // See below for details
