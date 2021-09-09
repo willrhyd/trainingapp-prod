@@ -2,7 +2,7 @@
   <div id="app">
     <navbar/>
     <!-- <rideList msg="this is where the calendar goes"/> -->
-    <router-view />
+    <router-view/>
   </div>
 </template>
 

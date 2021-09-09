@@ -8,7 +8,8 @@ const state = {
 
 const getters = {
   isAuthenticated: function (state) {
-    return !!state.user && !!Cookies.get('trainingApp')
+    return !!state.user
+     // && !!Cookies.get('trainingApp')
   },
   StateUser: state => state.user,
 };

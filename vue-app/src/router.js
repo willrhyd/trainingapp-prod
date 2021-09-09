@@ -9,8 +9,8 @@ import dashboard from './components/dashboard'
 Vue.use(Router)
 
 export default new Router ({
-  mode: 'history',
-  // base: process.env.NODE_ENV,
+  mode: 'hash',
+  base: '/trainingapp-prod',
   routes:[
     {path:'/', component: login},
     {path:'/calendar', component: calendar},
