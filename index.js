@@ -74,7 +74,7 @@ app.use(session({
     collectionName: 'sessions' // See below for details
   }),
   cookie: {
-
+    name: 'trainingApp',
     secure: true,
     maxAge: 100 * 60 * 60 * 24,
     sameSite: 'none',
