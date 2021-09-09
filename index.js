@@ -2,7 +2,6 @@
 
 const express = require("express");
 const app = express();
-const cookieSession = require("cookie-session");
 const mongoose = require('mongoose');
 const connection = require('./config/database')
 const passport = require('passport')
@@ -63,18 +62,7 @@ app.use(express.urlencoded({ // to support URL-encoded bodies
   extended: true
 }));
 
-
-app.set('trust proxy', 1)
-app.use(
-    cookieSession({
-      name: "__session",
-      keys: ["key1"],
-        maxAge: 24 * 60 * 60 * 100,
-        secure: true,
-        httpOnly: true,
-        sameSite: 'none'
-    })
-);
+app.enable("trust proxy");
 app.use(session({
   name: "trainingApp",
   secret: process.env.SESSION_SECRET,
@@ -85,10 +73,15 @@ app.use(session({
     mongoUrl: process.env.MONGODB_URI,
     collectionName: 'sessions' // See below for details
   }),
+  cookie: {
 
+    secure: true,
+    maxAge: 100 * 60 * 60 * 24,
+    sameSite: 'none',
+
+  },
   unset: 'destroy'
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
