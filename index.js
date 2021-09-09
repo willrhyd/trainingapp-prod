@@ -73,7 +73,7 @@ app.use(session({
   cookie: {
     domain: 'trainingappserver.uk',
     maxAge: 100 * 60 * 60 * 24,
-    httpOnly: false,
+    httpOnly: true,
     secure: false
   },
   unset: 'destroy'
