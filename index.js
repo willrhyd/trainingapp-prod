@@ -74,10 +74,10 @@ app.use(session({
   }),
   cookie: {
     domain: 'trainingappserver.uk',
-    sameSite: 'none',
+    SameSite: 'none',
     maxAge: 100 * 60 * 60 * 24,
     httpOnly: false,
-    
+    secure: true
   },
   unset: 'destroy'
 }));
