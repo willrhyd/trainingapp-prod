@@ -77,7 +77,7 @@ app.use(session({
     secure: true
   },
   unset: 'destroy'
-})console.log(session.cookie));
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
