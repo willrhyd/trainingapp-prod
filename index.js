@@ -61,6 +61,8 @@ app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded({ // to support URL-encoded bodies
   extended: true
 }));
+
+app.set("trust proxy", 1);
 app.use(session({
   name: "trainingApp",
   secret: process.env.SESSION_SECRET,
@@ -72,9 +74,10 @@ app.use(session({
   }),
   cookie: {
     domain: 'trainingappserver.uk',
+    sameSite: none,
     maxAge: 100 * 60 * 60 * 24,
-    httpOnly: true,
-    secure: false
+    httpOnly: false,
+    secure: true
   },
   unset: 'destroy'
 }));
