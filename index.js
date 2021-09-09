@@ -74,7 +74,7 @@ app.use(session({
     domain: 'trainingappserver.uk',
     maxAge: 100 * 60 * 60 * 24,
     httpOnly: false,
-    secure: true
+    secure: false
   },
   unset: 'destroy'
 }));
