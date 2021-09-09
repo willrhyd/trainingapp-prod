@@ -79,8 +79,7 @@ app.use(session({
     maxAge: 100 * 60 * 60 * 24,
     sameSite: 'none',
 
-  },
-  unset: 'destroy'
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
