@@ -44,6 +44,7 @@ const upload = multer({
 
 app.use((req, res, next) => {
   console.log(req.domain);
+  next();
 });
 app.use(cookieParser())
 app.use(cors({
