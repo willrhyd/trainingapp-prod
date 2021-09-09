@@ -43,7 +43,7 @@ const upload = multer({
 });
 
 app.use((req, res, next) => {
-  console.log(req.domain);
+  console.log(req.hostname);
   next();
 });
 app.use(cookieParser())
