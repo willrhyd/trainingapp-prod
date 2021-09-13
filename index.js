@@ -242,8 +242,7 @@ app.get('/pmc/:user', ensureAuthenticated, async function(req, res) {
       user: req.user.username
     }).sort({
       date: 'asc'
-    }).exec();
-
+    })
       var data = fit.pmc(rides)
       res.send(data)
 
