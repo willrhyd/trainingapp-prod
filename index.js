@@ -81,6 +81,7 @@ app.use(session({
     secure: true,
     maxAge: 100 * 60 * 60 * 24,
     sameSite: 'none',
+    domain: 'rides.trainingappserver.uk'
   },
   unset: 'destroy',
 }));
