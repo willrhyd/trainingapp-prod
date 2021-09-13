@@ -54,7 +54,7 @@ app.use(cors({
     'http://willrhyd.github.io/trainingapp-prod/#/',
     'http://localhost:8080'
   ],
-  credentials: 'include',
+  credentials: true,
   exposedHeaders: ['set-cookie']
 
 }));
