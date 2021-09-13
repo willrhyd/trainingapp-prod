@@ -214,7 +214,7 @@ app.post('/register', function(req, res) {
 });
 
 app.post('/login', passport.authenticate('local'), ensureAuthenticated, function(req, res) {
-
+  res.cookie(req.session.cookie)
   res.status(200).json({
     msg: "Signed in successfully"
   });
