@@ -237,12 +237,13 @@ app.delete('/file_delete/:id', function(req, res) {
 
 app.get('/pmc/:user', ensureAuthenticated, async function(req, res) {
   console.log("PMC called")
+  var data;
   try {
     var rides = await Ride.find({
       user: req.user.username
     }).sort({ date: 'asc'}).exec(
-      var data = fit.pmc(rides)
-      res.send(data)
+      fit.pmc(rides);
+      res.send(data);
     );
   } catch (err) {
     console.log(err);
