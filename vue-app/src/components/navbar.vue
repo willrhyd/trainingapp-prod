@@ -5,7 +5,7 @@
       <li v-if='isLoggedIn'><a v-on:click="clickCal" rel="noopener">Calendar</a></li>
       <li v-if='isLoggedIn'><a v-on:click="clickDash"  rel="noopener">Dashboard</a></li>
       <li v-if='isLoggedIn==false'><a v-on:click="clickReg"  rel="noopener">Sign Up</a></li>
-      <li v-if='isLoggedIn'><a v-on:click="logout" href="/"  rel="noopener">Logout</a></li>
+      <li v-if='isLoggedIn'><a v-on:click="logout"   rel="noopener">Logout</a></li>
     </ul>
   </div>
 </template>
