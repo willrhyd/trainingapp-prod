@@ -39,6 +39,7 @@ const actions = {
       if(resp.status==200){
           console.log("Logged in, response status" + resp.status)
           commit('setUser', User.username);
+                  
           return 200
         } else {throw new Error("Login failed")}
     } catch (err){
