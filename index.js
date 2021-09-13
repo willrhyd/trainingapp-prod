@@ -77,9 +77,8 @@ app.use(session({
   }),
   cookie: {
     name: 'trainingApp',
-    domain: 'trainingappserver.uk',
     maxAge: 100 * 60 * 60 * 24,
-    httpOnly: true
+    httpOnly: false
   },
   unset: 'destroy',
 }));
@@ -131,7 +130,7 @@ function uploadDB(req, res, next) {
 
 app.get('/showRides/:dateOne.:dateTwo', ensureAuthenticated, async (req, res, next) => {
   console.log(req.session);
-
+  
   var rideArr = [];
   let rides = await Ride.find({
     date: {
