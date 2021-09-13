@@ -77,11 +77,10 @@ app.use(session({
   }),
   cookie: {
     name: 'trainingApp',
-    secure: true,
     maxAge: 100 * 60 * 60 * 24,
-    sameSite: 'none',
-
-  }
+    httpOnly: false
+  },
+  unset: 'destroy',
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -131,7 +130,7 @@ function uploadDB(req, res, next) {
 
 app.get('/showRides/:dateOne.:dateTwo', ensureAuthenticated, async (req, res, next) => {
   console.log(req.session);
-  console.log(req.cookie);
+  
   var rideArr = [];
   let rides = await Ride.find({
     date: {
