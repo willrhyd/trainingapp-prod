@@ -52,7 +52,8 @@ app.use(cors({
     'https://willrhyd.github.io/trainingapp-prod/#/',
     'https://willrhyd.github.io',
     'http://willrhyd.github.io/trainingapp-prod/#/',
-    'http://localhost:8080'
+    'http://localhost:8080',
+    'https://rides.trainingappserver.uk'
   ],
   credentials: true,
   exposedHeaders: ['set-cookie']
