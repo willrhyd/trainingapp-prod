@@ -240,12 +240,10 @@ app.get('/pmc/:user', ensureAuthenticated, async function(req, res) {
   try {
     var rides = await Ride.find({
       user: req.user.username
-    });
-    // Assign tss average to each date CTLtoday = CTLyesterday + (TSStoday - CTLyesterday)(1/CTL time constant)
-    var data = fit.pmc(rides, )
-
-    res.send(data)
-
+    }).sort({ date: 'asc'}).exec(
+      var data = fit.pmc(rides)
+      res.send(data)
+    );
   } catch (err) {
     console.log(err);
   }
