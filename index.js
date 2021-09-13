@@ -130,7 +130,7 @@ function uploadDB(req, res, next) {
 // });
 
 app.get('/showRides/:dateOne.:dateTwo', ensureAuthenticated, async (req, res, next) => {
-  console.log(req.session);
+  console.log(req.session.cookie);
 
   var rideArr = [];
   let rides = await Ride.find({
