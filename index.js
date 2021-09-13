@@ -54,7 +54,7 @@ app.use(cors({
     'http://willrhyd.github.io/trainingapp-prod/#/',
     'http://localhost:8080'
   ],
-  credentials: true,
+  credentials: 'include',
   exposedHeaders: ['set-cookie']
 
 }));
@@ -77,8 +77,9 @@ app.use(session({
   }),
   cookie: {
     name: 'trainingApp',
+    secure: true,
     maxAge: 100 * 60 * 60 * 24,
-    httpOnly: false
+    sameSite: 'none',
   },
   unset: 'destroy',
 }));
@@ -130,7 +131,7 @@ function uploadDB(req, res, next) {
 
 app.get('/showRides/:dateOne.:dateTwo', ensureAuthenticated, async (req, res, next) => {
   console.log(req.session);
-  
+
   var rideArr = [];
   let rides = await Ride.find({
     date: {
